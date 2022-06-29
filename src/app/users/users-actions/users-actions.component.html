@@ -1,0 +1,17 @@
+<mat-toolbar class="actions">
+    <div class="container">
+        <button mat-button color="primary" (click)="selectUsers()">Select all</button>
+        <button mat-button color="primary" (click)="removeUser()">Delete</button>
+        <mat-form-field class="actions__sort sort">
+            <mat-label>Sorting order</mat-label>
+            <mat-select (valueChange)="sortUsers($event)" class="sort__select">
+                <mat-option value="1">Sort by name, A-Z</mat-option>
+                <mat-option value="-1">Sort by name, Z-A</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <mat-form-field appearance="outline" class="actions__search search">
+        <mat-label class="search__label">Search users</mat-label>
+        <input [(ngModel)]="searchString" (keyup)="searchUser()" matInput type="text" class="search__input">
+    </mat-form-field>
+</mat-toolbar>
