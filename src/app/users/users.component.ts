@@ -8,14 +8,14 @@ import { User, UsersServiceService } from './services/users-service.service';
 })
 export class UsersComponent implements OnInit {
   usersList: User[] = [];
-  searchString: string = ''
+  searchString: string = '';
 
   constructor(public usersService: UsersServiceService) {}
 
   ngOnInit(): void {
     this.usersList = this.usersService.usersList;
   }
-  checkUser(id: number) {
+  checkUsers(id: number) {
     const index = this.usersList.findIndex((user) => user.id === id);
     this.usersList[index].checked = !this.usersList[index].checked;
   }
@@ -30,15 +30,19 @@ export class UsersComponent implements OnInit {
     this.usersList = this.usersList.filter((user) => user.checked === false);
   }
 
-  searchUser(searchData: string) {
+  searchUsers(searchData: string) {
     this.searchString = searchData;
   }
 
   sortUsers(value: string) {
     if (+value === 1) {
-      this.usersList = this.usersList.sort((a: User,b: User) => a.firstname > b.firstname ? 1 : -1)
+      this.usersList = this.usersList.sort((a: User, b: User) =>
+        a.firstname > b.firstname ? 1 : -1
+      );
     } else if (+value === -1) {
-      this.usersList = this.usersList.sort((a: User,b: User) => a.firstname < b.firstname ? 1 : -1)
+      this.usersList = this.usersList.sort((a: User, b: User) =>
+        a.firstname < b.firstname ? 1 : -1
+      );
     }
   }
 }

@@ -1,22 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsersComponent } from './users.component';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { UsersActionsComponent } from './users-actions/users-actions.component';
 import { FormsModule } from '@angular/forms';
-import { MatSelectModule } from '@angular/material/select'
-import {MatButtonModule} from '@angular/material/button'; 
-import {MatInputModule} from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card'
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import { UserFilterPipe } from './services/user-filter.pipe'
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+import { UsersComponent } from './users.component';
+import { UsersActionsComponent } from './users-actions/users-actions.component';
+
+import { UserFilterPipe } from './services/user-filter.pipe';
 
 @NgModule({
-  declarations: [
-    UsersComponent,
-    UsersActionsComponent,
-    UserFilterPipe
-  ],
+  declarations: [UsersComponent, UsersActionsComponent, UserFilterPipe],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -27,9 +26,6 @@ import { UserFilterPipe } from './services/user-filter.pipe'
     MatCardModule,
     MatCheckboxModule,
   ],
-  exports: [
-    UsersComponent,
-    
-  ]
+  exports: [UsersComponent],
 })
-export class UsersModule { }
+export class UsersModule {}

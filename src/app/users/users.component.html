@@ -1,15 +1,11 @@
 <mat-toolbar color="primary">
     <span>Angular lecture 1</span>
 </mat-toolbar>
-<app-users-actions
-    (remove)="removeUsers()"
-    (selectedUsers)="selectUsers()"
-    (search)="searchUser($event)"
-    (sortUser)="sortUsers($event)"
-></app-users-actions>
+<app-users-actions (remove)="removeUsers()" (selectedUsers)="selectUsers()" (search)="searchUsers($event)"
+    (sortUser)="sortUsers($event)"></app-users-actions>
 <div class="users">
     <mat-card *ngFor="let user of usersList | userFilter:searchString" class="users__card card">
-        <mat-checkbox [checked]="user.checked" (change)="checkUser(user.id)" class="card__check"></mat-checkbox>
+        <mat-checkbox [checked]="user.checked" (change)="checkUsers(user.id)" class="card__check"></mat-checkbox>
         <mat-card-title>{{ user.firstname }} {{ user.lastname }}</mat-card-title>
         <mat-card-content>
             <p>{{ user.email }}</p>
