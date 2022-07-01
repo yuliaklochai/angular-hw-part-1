@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { User } from './users-service.service';
+import { User } from './api.service';
 
 @Pipe({
   name: 'userFilter',
@@ -10,10 +10,7 @@ export class UserFilterPipe implements PipeTransform {
       return users;
     }
     return users.filter((users) => {
-      return (
-        users.firstname.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        users.lastname.toLowerCase().indexOf(search.toLowerCase()) !== -1
-      );
+      return users.name.toLowerCase().indexOf(search.toLowerCase()) !== -1 ;
     });
   }
 }

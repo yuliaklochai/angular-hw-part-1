@@ -1,0 +1,21 @@
+<div class="container">
+    <form [formGroup]="newUserForm" class="form">
+        <div>
+            <input class="form__input" type="text" placeholder="First name..." formControlName="firstName">
+            <mat-error *ngIf="(this.newUserForm.controls['firstName'].invalid) && submitted">You must enter a correct value</mat-error>
+        </div>
+        <div>
+            <input class="form__input" type="text" placeholder="Last name..." formControlName="lastName">
+            <mat-error *ngIf="(this.newUserForm.controls['lastName'].invalid) && submitted">You must enter a correct value</mat-error>
+        </div>
+        <div>
+            <input class="form__input" type="email" placeholder="Email..." formControlName="email">
+            <mat-error *ngIf="(this.newUserForm.controls['email'].invalid) && submitted">You must enter a correct value</mat-error>
+        </div>
+        <div>
+            <input class="form__input" type="tel" placeholder="Phone number..." formControlName="phone">
+            <mat-error *ngIf="(this.newUserForm.controls['phone'].invalid) && submitted">You must enter a correct value</mat-error>
+        </div>
+        <button class="form__button" mat-button color="primary" type="submit" (click)="sendUser()">Add new user</button>
+    </form>
+</div>
